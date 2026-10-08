@@ -1,0 +1,6 @@
+@model List<Plan>
+@{ ViewData["Title"] = "Subscription plans"; }
+<div class="page-heading"><div><p class="eyebrow">QUTECH ADMINISTRATION</p><h1>Subscription plans</h1><p>Flexible monthly plans with clear allowances and included capabilities.</p></div><a class="button" asp-action="Create">+ New record</a></div>
+<div class="plan-grid">@foreach (var plan in Model) {
+    <article class="plan"><p class="eyebrow">MONTHLY SUBSCRIPTION</p><h2>@plan.Name</h2><p>@plan.Description</p><p class="price">AUD @plan.MonthlyPrice?.ToString("N0")<small> / month</small></p><p>@plan.IncludedApiCalls?.ToString("N0") API calls included</p><ul>@foreach (var link in plan.PlanModules) { <li>@link.Module.Name</li> }</ul><a class="button secondary" asp-action="Details" asp-route-id="@plan.Id">Review plan →</a></article>
+}</div>

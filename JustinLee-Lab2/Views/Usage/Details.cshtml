@@ -1,0 +1,6 @@
+@model UsageRecord
+@{ ViewData["Title"] = "Usage details"; }
+<a class="back" asp-action="Index">← Back to usage</a>
+@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
+<div class="page-heading"><div><p class="eyebrow">USAGE</p><h1>Usage record</h1></div></div>
+<section class="panel"><dl class="details"><div><dt>Customer</dt><dd>@Model.Subscription.Customer.CompanyName</dd></div><div><dt>Plan</dt><dd>@Model.Subscription.Plan.Name</dd></div><div><dt>Period</dt><dd>@Model.PeriodStart?.ToString("MMM yyyy")</dd></div><div><dt>API calls</dt><dd>@Model.ApiCalls?.ToString("N0")</dd></div><div><dt>Monthly allowance</dt><dd>@Model.Subscription.Plan.IncludedApiCalls?.ToString("N0")</dd></div></dl></section>

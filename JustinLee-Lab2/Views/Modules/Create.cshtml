@@ -1,0 +1,10 @@
+@model Module
+@{ ViewData["Title"] = "New Module"; }
+<a class="back" asp-action="Index">← Back to modules</a>
+<div class="page-heading"><div><p class="eyebrow">MODULES</p><h1>New module</h1><p>Enter the details below to preview this record.</p></div></div>
+<p class="notice">Preview only. Valid submissions are displayed for review and are not saved.</p>
+<form asp-action="Create" method="post" class="form-panel">
+    @if (!ViewData.ModelState.IsValid) { <p class="validation" role="alert">Please correct the highlighted fields and preview again.</p> }
+    <div class="field"><label asp-for="Name">Module name</label><input asp-for="Name" type="text" /><span asp-validation-for="Name" class="validation"></span></div><div class="field"><label asp-for="Description">Description</label><textarea asp-for="Description" rows="3"></textarea><span asp-validation-for="Description" class="validation"></span></div>
+    <div class="form-actions"><button type="submit" class="button">Validate &amp; preview</button><a asp-action="Index">Cancel</a></div>
+</form>

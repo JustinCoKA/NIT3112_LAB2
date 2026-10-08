@@ -1,0 +1,10 @@
+@model UsageRecord
+@{ ViewData["Title"] = "New UsageRecord"; }
+<a class="back" asp-action="Index">← Back to usage</a>
+<div class="page-heading"><div><p class="eyebrow">USAGE</p><h1>New usage record</h1><p>Enter the details below to preview this record.</p></div></div>
+<p class="notice">Preview only. Valid submissions are displayed for review and are not saved.</p>
+<form asp-action="Create" method="post" class="form-panel">
+    @if (!ViewData.ModelState.IsValid) { <p class="validation" role="alert">Please correct the highlighted fields and preview again.</p> }
+    <div class="field"><label asp-for="SubscriptionId">Subscription</label><select asp-for="SubscriptionId"><option value="">Select subscription</option>@foreach (var item in ViewBag.Subscriptions) { <option value="@item.Id">@item.Customer.CompanyName (#@item.Id)</option> }</select>@if (ViewData.ModelState.GetValidationState("SubscriptionId") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) { <span class="validation">Choose an existing subscription from the list.</span> }</div><div class="field"><label asp-for="PeriodStart">Period start</label><input asp-for="PeriodStart" type="date" />@if (ViewData.ModelState.GetValidationState("PeriodStart") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) { <span class="validation">Enter a valid usage period start date.</span> }</div><div class="field"><label asp-for="ApiCalls">API calls</label><input asp-for="ApiCalls" type="number" />@if (ViewData.ModelState.GetValidationState("ApiCalls") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) { <span class="validation">Enter a whole number of API calls, zero or more.</span> }</div>
+    <div class="form-actions"><button type="submit" class="button">Validate &amp; preview</button><a asp-action="Index">Cancel</a></div>
+</form>

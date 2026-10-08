@@ -1,0 +1,3 @@
+@model List<AuditEntry>
+@{ ViewData["Title"] = "Audit trail"; }
+<div class="page-heading"><div><p class="eyebrow">QUTECH ADMINISTRATION</p><h1>Audit trail</h1><p>Fictional historical actions. Form previews do not generate new audit entries.</p></div></div><div class="table-wrap"><table><thead><tr><th scope="col">Timestamp</th><th scope="col">Administrator</th><th scope="col">Action</th><th scope="col">Target</th></tr></thead><tbody>@foreach (var item in Model) {<tr><td>@item.OccurredAt?.ToString("dd MMM yyyy HH:mm")</td><td><a asp-controller="Administrators" asp-action="Details" asp-route-id="@item.AdministratorId">@item.Administrator.FullName</a></td><td>@item.Action</td><td>@item.Target</td></tr>}</tbody></table></div>

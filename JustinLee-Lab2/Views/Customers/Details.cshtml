@@ -1,0 +1,11 @@
+@model Customer
+@{ ViewData["Title"] = "Customers details"; }
+<a class="back" asp-action="Index">← Back to customers</a>
+@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
+<div class="page-heading"><div><p class="eyebrow">CUSTOMERS</p><h1>@Model.CompanyName</h1></div></div>
+<section class="panel"><dl class="details"><div><dt>Contact</dt><dd>@Model.FullName</dd></div><div><dt>Email</dt><dd>@Model.Email</dd></div><div><dt>Phone</dt><dd>@Model.Phone</dd></div></dl></section>
+
+@if (ViewBag.IsPreview != true) {
+<section class="panel"><div class="section-heading"><h2>Billing profile</h2><a asp-controller="BillingProfiles" asp-action="Edit" asp-route-id="@Model.Id">Preview changes →</a></div><p>@Model.BillingProfile.BillingName<br />@Model.BillingProfile.BillingEmail<br />@Model.BillingProfile.Address</p></section>
+<section class="panel"><h2>Subscriptions</h2>@foreach (var subscription in Model.Subscriptions) { <p><a asp-controller="Subscriptions" asp-action="Details" asp-route-id="@subscription.Id">@subscription.Plan.Name</a> · @subscription.Status</p> }</section>
+}

@@ -1,0 +1,3 @@
+@model List<Module>
+@{ ViewData["Title"] = "Modules"; }
+<div class="page-heading"><div><p class="eyebrow">QUTECH ADMINISTRATION</p><h1>Modules</h1><p>Reusable software capabilities included in the subscription catalogue.</p></div><a class="button" asp-action="Create">+ New record</a></div><div class="table-wrap"><table><thead><tr><th scope="col">Module</th><th scope="col">Purpose</th><th scope="col">Plan assignments</th></tr></thead><tbody>@foreach (var item in Model) {<tr><td><a asp-action="Details" asp-route-id="@item.Id">@item.Name</a></td><td>@item.Description</td><td>@item.PlanModules.Count</td></tr>}</tbody></table></div>

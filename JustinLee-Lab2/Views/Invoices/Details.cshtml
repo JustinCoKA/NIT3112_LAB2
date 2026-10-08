@@ -1,0 +1,6 @@
+@model Invoice
+@{ ViewData["Title"] = "Invoices details"; }
+<a class="back" asp-action="Index">← Back to invoices</a>
+@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
+<div class="page-heading"><div><p class="eyebrow">INVOICES</p><h1>@Model.Reference</h1></div></div>
+<section class="panel"><dl class="details"><div><dt>Customer</dt><dd>@Model.Subscription.Customer.CompanyName</dd></div><div><dt>Plan</dt><dd>@Model.Subscription.Plan.Name</dd></div><div><dt>Issued</dt><dd>@Model.IssuedOn?.ToString("dd MMM yyyy")</dd></div><div><dt>Due</dt><dd>@Model.DueOn?.ToString("dd MMM yyyy")</dd></div><div><dt>Amount (AUD)</dt><dd>@Model.Amount?.ToString("N2")</dd></div><div><dt>Status</dt><dd>@Model.Status</dd></div></dl></section>

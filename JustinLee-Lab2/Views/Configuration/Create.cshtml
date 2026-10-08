@@ -1,0 +1,11 @@
+@model PlanModule
+@{ ViewData["Title"] = "Configure a module"; }
+<a class="back" asp-action="Index">← Back to configuration</a><h1>Configure a module</h1>
+@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
+<p class="notice">Preview a new or existing plan/module combination. No settings will be saved.</p>
+<form asp-action="Create" method="post" class="form-panel">
+@if (!ViewData.ModelState.IsValid) { <p class="validation" role="alert">Please correct the highlighted fields and preview again.</p> }
+<div class="field"><label asp-for="PlanId">Subscription plan</label><select asp-for="PlanId"><option value="">Select plan</option>@foreach (var plan in ViewBag.Plans) {<option value="@plan.Id">@plan.Name</option>}</select>@if (ViewData.ModelState.GetValidationState("PlanId") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) { <span class="validation">Choose an existing subscription plan from the list.</span> }</div>
+<div class="field"><label asp-for="ModuleId">Module</label><select asp-for="ModuleId"><option value="">Select module</option>@foreach (var module in ViewBag.Modules) {<option value="@module.Id">@module.Name</option>}</select>@if (ViewData.ModelState.GetValidationState("ModuleId") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) { <span class="validation">Choose an existing module from the list.</span> }</div>
+<div class="field"><label asp-for="Enabled">Module availability</label><select asp-for="Enabled"><option value="true">Enabled</option><option value="false">Disabled</option></select>@if (ViewData.ModelState.GetValidationState("Enabled") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid) { <span class="validation">Select a valid enabled setting.</span> }</div>
+<button class="button" type="submit">Validate &amp; preview</button></form>

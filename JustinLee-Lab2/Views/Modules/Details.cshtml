@@ -1,0 +1,7 @@
+@model Module
+@{ ViewData["Title"] = "Modules details"; }
+<a class="back" asp-action="Index">← Back to modules</a>
+@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
+<div class="page-heading"><div><p class="eyebrow">MODULES</p><h1>@Model.Name</h1></div></div>
+<section class="panel"><dl class="details"><div><dt>Purpose</dt><dd>@Model.Description</dd></div></dl></section>
+@if (ViewBag.IsPreview != true) {<section class="panel"><h2>Included in these plans</h2>@foreach (var link in Model.PlanModules) {<p><a asp-controller="Plans" asp-action="Details" asp-route-id="@link.PlanId">@link.Plan.Name</a> · @(link.Enabled ? "Enabled" : "Disabled")</p>}</section>}
