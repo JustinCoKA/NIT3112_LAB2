@@ -1,0 +1,12 @@
+@model Discount
+@{ var editing = Model.Id != 0; ViewData["Title"] = editing ? "Edit Discount" : "New Discount"; }
+<a class="back" asp-action="Index">Back to discounts</a><h1>@ViewData["Title"]</h1><p>Save valid business information to the QuTech database.</p>
+<form class="form-panel" method="post" asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@(editing ? Model.Id : (int?)null)">
+<input type="hidden" asp-for="Id"/><div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="Name">Discount name</label><input asp-for="Name" type="text"/><span asp-validation-for="Name" class="validation"></span></div>
+<div class="field"><label asp-for="Description">Description</label><textarea asp-for="Description" rows="3"></textarea><span asp-validation-for="Description" class="validation"></span></div>
+<div class="field"><label asp-for="Percentage">Percentage</label><input asp-for="Percentage" type="number" step="0.01"/><span asp-validation-for="Percentage" class="validation"></span></div>
+<div class="field"><label asp-for="StartsOn">Starts on</label><input asp-for="StartsOn" type="date" asp-format="{0:yyyy-MM-dd}"/><span asp-validation-for="StartsOn" class="validation"></span></div>
+<div class="field"><label asp-for="EndsOn">Ends on</label><input asp-for="EndsOn" type="date" asp-format="{0:yyyy-MM-dd}"/><span asp-validation-for="EndsOn" class="validation"></span></div>
+<div class="field"><label asp-for="Enabled">Enabled</label><select asp-for="Enabled"><option value="true">Yes</option><option value="false">No</option></select><span asp-validation-for="Enabled" class="validation"></span></div>
+<div class="form-actions"><button class="button" type="submit">Save</button><a asp-action="Index">Cancel</a></div></form>

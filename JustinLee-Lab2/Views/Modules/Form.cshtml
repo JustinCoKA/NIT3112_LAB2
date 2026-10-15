@@ -1,0 +1,8 @@
+@model Module
+@{ var editing = Model.Id != 0; ViewData["Title"] = editing ? "Edit Module" : "New Module"; }
+<a class="back" asp-action="Index">Back to modules</a><h1>@ViewData["Title"]</h1><p>Save valid business information to the QuTech database.</p>
+<form class="form-panel" method="post" asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@(editing ? Model.Id : (int?)null)">
+<input type="hidden" asp-for="Id"/><div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="Name">Module name</label><input asp-for="Name" type="text"/><span asp-validation-for="Name" class="validation"></span></div>
+<div class="field"><label asp-for="Description">Description</label><textarea asp-for="Description" rows="3"></textarea><span asp-validation-for="Description" class="validation"></span></div>
+<div class="form-actions"><button class="button" type="submit">Save</button><a asp-action="Index">Cancel</a></div></form>

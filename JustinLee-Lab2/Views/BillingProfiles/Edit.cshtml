@@ -1,13 +1,7 @@
 @model BillingProfile
 @{ ViewData["Title"] = "Billing profile"; }
-<a class="back" asp-controller="Customers" asp-action="Details" asp-route-id="@Model.CustomerId">← Back to customer</a>
-<h1>Billing profile</h1>
-@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
-<p class="notice">Changes can be validated and previewed here. They are not saved.</p>
-<form asp-action="Edit" asp-route-id="@Model.CustomerId" method="post" class="form-panel">
-@if (!ViewData.ModelState.IsValid) { <p class="validation" role="alert">Please correct the highlighted fields and preview again.</p> }
-<div class="field"><label asp-for="BillingName">Billing organisation</label><input asp-for="BillingName" /><span asp-validation-for="BillingName" class="validation"></span></div>
-<div class="field"><label asp-for="BillingEmail">Billing email</label><input asp-for="BillingEmail" type="email" /><span asp-validation-for="BillingEmail" class="validation"></span></div>
-<div class="field"><label asp-for="Address">Billing address</label><textarea asp-for="Address"></textarea><span asp-validation-for="Address" class="validation"></span></div>
-<button class="button" type="submit">Validate &amp; preview</button>
-</form>
+<a class="back" asp-controller="Customers" asp-action="Details" asp-route-id="@Model.CustomerId">Back to customer</a><h1>Billing profile</h1><p>Update the invoice destination for this customer.</p>
+<form class="form-panel" method="post" asp-action="Edit" asp-route-id="@Model.CustomerId"><div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="BillingName">Billing name</label><input asp-for="BillingName"/><span asp-validation-for="BillingName" class="validation"></span></div>
+<div class="field"><label asp-for="BillingEmail">Billing email</label><input asp-for="BillingEmail" type="email"/><span asp-validation-for="BillingEmail" class="validation"></span></div>
+<div class="field"><label asp-for="Address">Billing address</label><textarea asp-for="Address" rows="3"></textarea><span asp-validation-for="Address" class="validation"></span></div><button class="button" type="submit">Save billing profile</button></form>

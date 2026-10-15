@@ -1,10 +1,13 @@
 @model Administrator
-@{ ViewData["Title"] = "New Administrator"; }
+@{ ViewData["Title"] = "New administrator"; }
 <a class="back" asp-action="Index">← Back to administrators</a>
-<div class="page-heading"><div><p class="eyebrow">ADMINISTRATORS</p><h1>New administrator</h1><p>Enter the details below to preview this record.</p></div></div>
-<p class="notice">Preview only. Valid submissions are displayed for review and are not saved.</p>
+<div class="page-heading"><div><p class="eyebrow">ACCESS MANAGEMENT</p><h1>New administrator</h1><p>Manage the profile and email used for administrator access.</p></div></div>
 <form asp-action="Create" method="post" class="form-panel">
-    @if (!ViewData.ModelState.IsValid) { <p class="validation" role="alert">Please correct the highlighted fields and preview again.</p> }
-    <div class="field"><label asp-for="FullName">Full name</label><input asp-for="FullName" type="text" /><span asp-validation-for="FullName" class="validation"></span></div><div class="field"><label asp-for="Email">Email</label><input asp-for="Email" type="email" /><span asp-validation-for="Email" class="validation"></span></div><div class="field"><label asp-for="Phone">Phone</label><input asp-for="Phone" type="tel" /><span asp-validation-for="Phone" class="validation"></span></div><div class="field"><label asp-for="Department">Department</label><input asp-for="Department" type="text" /><span asp-validation-for="Department" class="validation"></span></div>
-    <div class="form-actions"><button type="submit" class="button">Validate &amp; preview</button><a asp-action="Index">Cancel</a></div>
+<div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="FullName">Full name</label><input asp-for="FullName" type="text" /><span asp-validation-for="FullName" class="validation"></span></div>
+<div class="field"><label asp-for="Email">Email address</label><input asp-for="Email" type="email" /><span asp-validation-for="Email" class="validation"></span></div>
+<div class="field"><label asp-for="Phone">Phone</label><input asp-for="Phone" type="tel" /><span asp-validation-for="Phone" class="validation"></span></div>
+<div class="field"><label asp-for="Department">Department</label><input asp-for="Department" type="text" /><span asp-validation-for="Department" class="validation"></span></div>
+<div class="field"><label for="password">Initial password</label><input id="password" name="password" type="password" autocomplete="new-password" aria-describedby="password-help" /><span class="validation">@Html.ValidationMessage("password")</span><p id="password-help">Use at least 12 characters, including uppercase and lowercase letters, a number and a symbol.</p></div>
+<div class="form-actions"><button type="submit" class="button">Save administrator</button><a asp-action="Index">Cancel</a></div>
 </form>

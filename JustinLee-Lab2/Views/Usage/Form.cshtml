@@ -1,0 +1,9 @@
+@model UsageRecord
+@{ var editing = Model.Id != 0; ViewData["Title"] = editing ? "Edit UsageRecord" : "New UsageRecord"; }
+<a class="back" asp-action="Index">Back to usage</a><h1>@ViewData["Title"]</h1><p>Save valid business information to the QuTech database.</p>
+<form class="form-panel" method="post" asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@(editing ? Model.Id : (int?)null)">
+<input type="hidden" asp-for="Id"/><div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="SubscriptionId">Subscription</label><select asp-for="SubscriptionId"><option value="">Choose subscription</option>@foreach (var item in ViewBag.Subscriptions) { <option value="@item.Id">@item.Customer.CompanyName · Subscription #@item.Id</option> }</select><span asp-validation-for="SubscriptionId" class="validation"></span></div>
+<div class="field"><label asp-for="PeriodStart">Reporting month</label><input asp-for="PeriodStart" type="date" asp-format="{0:yyyy-MM-dd}"/><span asp-validation-for="PeriodStart" class="validation"></span></div>
+<div class="field"><label asp-for="ApiCalls">API calls</label><input asp-for="ApiCalls" type="number" step="1"/><span asp-validation-for="ApiCalls" class="validation"></span></div>
+<div class="form-actions"><button class="button" type="submit">Save</button><a asp-action="Index">Cancel</a></div></form>

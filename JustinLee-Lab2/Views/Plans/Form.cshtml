@@ -1,0 +1,10 @@
+@model Plan
+@{ var editing = Model.Id != 0; ViewData["Title"] = editing ? "Edit Plan" : "New Plan"; }
+<a class="back" asp-action="Index">Back to plans</a><h1>@ViewData["Title"]</h1><p>Save valid business information to the QuTech database.</p>
+<form class="form-panel" method="post" asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@(editing ? Model.Id : (int?)null)">
+<input type="hidden" asp-for="Id"/><div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="Name">Plan name</label><input asp-for="Name" type="text"/><span asp-validation-for="Name" class="validation"></span></div>
+<div class="field"><label asp-for="Description">Description</label><textarea asp-for="Description" rows="3"></textarea><span asp-validation-for="Description" class="validation"></span></div>
+<div class="field"><label asp-for="MonthlyPrice">Monthly price AUD</label><input asp-for="MonthlyPrice" type="number" step="0.01"/><span asp-validation-for="MonthlyPrice" class="validation"></span></div>
+<div class="field"><label asp-for="IncludedApiCalls">Included API calls</label><input asp-for="IncludedApiCalls" type="number" step="1"/><span asp-validation-for="IncludedApiCalls" class="validation"></span></div>
+<div class="form-actions"><button class="button" type="submit">Save</button><a asp-action="Index">Cancel</a></div></form>

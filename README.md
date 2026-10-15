@@ -1,53 +1,48 @@
-# JustinLee-Lab2 · QuTech SaaS administration
+# QuTech SaaS administration
 
-NIT3112 Lab Assessment 2 — Justin Lee
+NIT3112 Lab Assessment 3 — Justin Lee. Continues the Lab 2 MVC solution with SQLite persistence, ASP.NET Core Identity and an administrator workspace.
 
-A running ASP.NET Core MVC prototype with C# models, Razor views and fictional business data. The design follows the actual QuTech brief and the supplied Week 1–2 lecture material. [Teaching-source map](docs/SOURCE-MAP.md).
+## Run the extracted project
 
-## Run
+Prerequisite: .NET SDK 10.0.401 or a later 10.0.4xx patch. The first restore requires access to NuGet. No database server, connection-string edits or manual migrations are required.
 
-Requires the .NET 10 SDK (the version introduced in Session 1 and available on the development machine).
-
-```sh
-dotnet build JustinLee-Lab2.sln
-dotnet run --project JustinLee-Lab2/JustinLee-Lab2.csproj
-```
-
-Open http://localhost:5080. In Visual Studio, open `JustinLee-Lab2.sln`, select the JustinLee-Lab2 profile and run.
-
-In the restricted macOS development environment, the default configuration file watcher stalled during startup. This per-process workaround was used for verification; it does not change the course startup code:
+From the folder containing JustinLee-Lab2.sln:
 
 ```sh
-DOTNET_USE_POLLING_FILE_WATCHER=1 DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false dotnet run --project JustinLee-Lab2/JustinLee-Lab2.csproj
+dotnet run --project JustinLee-Lab2/JustinLee-Lab2.csproj --no-launch-profile --urls http://127.0.0.1:5083
 ```
 
-## Included
+Open http://127.0.0.1:5083. On macOS, `bash scripts/run-lab3.sh` applies the file-watcher settings used during verification. On Windows, Visual Studio can open JustinLee-Lab2.sln. The existing solution/project name is retained as permitted continuation of Lab 2; the application is Lab 3.
 
-- Overview and analytics with totals calculated from sample records.
-- Customer contacts and their one-to-one billing profiles.
-- Administrator records inheriting common Person contact fields.
-- Subscription plans and configurable software modules (many-to-many).
-- Customer subscriptions, API usage, invoices and read-only audit history.
-- Create/edit preview forms with custom server-side validation messages.
-- Shared responsive layout, navigation, detail pages and accessible form labels.
-- [Model and MVC design](docs/DESIGN.md), [screen inventory](docs/SCREENS.md) and [verification](docs/VALIDATION.md).
+On first run, EF Core applies the included migration, creates qutech.db in the application content root and seeds fictional business records and administrator accounts. Later starts preserve stored changes. The database file is not shipped in the source ZIP.
 
-The source contains 11 domain classes, plus a demo-data container and a dashboard view model. There are 11 concrete controllers and 28 page templates. Shared Razor infrastructure is additional.
+Demo administrator: **alex@example.com**
 
-## Lab 2 boundary
+Demo password: **QuTechLab3!2026**
 
-Forms validate input and display a preview. They intentionally do not save or change the fixed sample dataset. The interface labels this behaviour. Database persistence, real authentication/authorisation, payments, automatic invoice generation and automatic audit capture are future Lab 3 work. The app is a local, unauthenticated coursework prototype.
+These credentials are exclusively for the local coursework demonstration. Other seeded administrator emails are taylor@example.com, jordan@example.com, casey@example.com and riley@example.com, using the same demonstration password. There is no public registration. Signed-in administrators create further accounts in Administrators. The app uses password hashes, role restrictions, login lockout and antiforgery checks.
 
-The proposed ERD describes future persistent relationships. This iteration demonstrates them as linked C# objects; it does not create a database or enforce database constraints. All customer details use fictional names and example.com addresses. Prices are illustrative AUD amounts and exclude tax/proration calculations.
+## Functional coverage
+
+- Persistent customers and one-to-one billing profiles.
+- Identity-linked administrators with account/profile transactions.
+- Plans, modules and configurable many-to-many associations.
+- Discount validity, percentage and availability; customer subscriptions.
+- Monthly API usage and usage/allowance reporting.
+- Monthly invoice generation from server-calculated prices and discounts; paid status and print layout.
+- Read-only actor/time/target audit entries for business writes and sign-in/sign-out.
+- Custom field validation and relationship-aware deletion protection.
+
+Invoices use full monthly fees in AUD, excluding tax, proration and external payment processing. Discounts apply if enabled and valid at the billing-month start. Decimal amounts round to two places away from zero. Monetary invoice values are snapshots; plan names and customer billing addresses are current related-record data. Historical trial/paused seeded invoices represent earlier billing activity; new invoices require an active subscription. Dashboard recurring revenue is active current list prices before discounts. Analytics aggregates all stored records and compares usage with current plan allowances.
+
+No invoice deletion is exposed because accounting history is retained. Audit entries have no edit/delete endpoint. Parent records with dependent history cannot be deleted. A subscription cannot be reassigned to a different customer after billing or usage history exists. Billing profiles are created with a customer and edited through that customer's details.
 
 ## Verification
 
-With the app running:
-
 ```sh
-python3 scripts/smoke_test.py
+python3 scripts/lab3_test.py
 ```
 
-The Python script is an optional development check, not an application dependency. It crawls local links, checks missing IDs, exercises valid and invalid forms, confirms previews do not persist, checks HTML encoding and validates displayed totals.
+This optional standard-library Python harness builds the app, uses its own test SQLite database and port5086, tests HTTP workflows and database outcomes, restarts the app to verify persistence, and stops its own server. Python is not required to run the application. See [verification](docs/lab3/VERIFIED.md) and [lecture map](docs/SOURCE-MAP.md).
 
-The docs are implementation notes and report material. They are not a claim that the final assessment report has been formatted or submitted.
+The final report and captures are delivered separately. They are not published in this repository.

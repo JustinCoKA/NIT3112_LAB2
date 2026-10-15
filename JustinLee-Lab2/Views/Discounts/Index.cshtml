@@ -1,0 +1,5 @@
+@model List<Discount>
+@{ ViewData["Title"] = "Discounts"; }
+<div class="page-heading"><div><p class="eyebrow">QUTECH OPERATIONS</p><h1>Discounts</h1><p>Manage the stored discounts for your SaaS service.</p></div><a class="button" asp-action="Create">New Discount</a></div>
+<div class="table-wrap"><table><thead><tr><th>Discount name</th><th>Description</th><th>Percentage</th><th>Starts on</th><th>Actions</th></tr></thead><tbody>@foreach(var item in Model) { <tr><td>@item.Name</td><td>@item.Description</td><td>@item.Percentage</td><td>@item.StartsOn</td><td><a asp-action="Details" asp-route-id="@item.Id">Details</a> · <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> · <a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td></tr> }</tbody></table></div>
+@if(Model.Count == 0) { <p>No records yet. Create the first record above.</p> }

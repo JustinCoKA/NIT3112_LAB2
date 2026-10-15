@@ -1,0 +1,4 @@
+@model Discount
+@{ ViewData["Title"] = "Discount details"; }
+<a class="back" asp-action="Index">Back to discounts</a><div class="page-heading"><h1>Discount details</h1><a class="button" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></div>
+<section class="panel"><dl class="details"><div><dt>Discount name</dt><dd>@Model.Name</dd></div><div><dt>Description</dt><dd>@Model.Description</dd></div><div><dt>Percentage</dt><dd>@Model.Percentage</dd></div><div><dt>Starts on</dt><dd>@Model.StartsOn</dd></div><div><dt>Ends on</dt><dd>@Model.EndsOn</dd></div><div><dt>Enabled</dt><dd>@Model.Enabled</dd></div></dl></section>

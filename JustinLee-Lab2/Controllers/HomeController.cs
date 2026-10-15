@@ -1,44 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using JustinLee_Lab2.Data;
 using JustinLee_Lab2.Models;
-
 namespace JustinLee_Lab2.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : QuTechAdminController
     {
-        private readonly DemoData data = new DemoData();
+        public HomeController(QuTechContext db) : base(db) { }
         public IActionResult Index()
         {
-            return View(CreateDashboard());
+            var subscriptions = Db.Subscriptions.Include(x => x.Customer).Include(x => x.Plan).ToList();
+            var invoices = Db.Invoices.Include(x => x.Subscription).ThenInclude(x => x.Customer).ToList();
+            return View(new DashboardViewModel { CustomerCount = Db.Customers.Count(), ActiveSubscriptions = subscriptions.Count(x => x.Status == "Active"), MonthlyRevenue = subscriptions.Where(x => x.Status == "Active").Sum(x => x.Plan.MonthlyPrice ?? 0), UnpaidAmount = invoices.Where(x => x.Status == "Unpaid").Sum(x => x.Amount ?? 0), Subscriptions = subscriptions, OpenInvoices = invoices.Where(x => x.Status == "Unpaid").ToList() });
         }
         public IActionResult Analytics()
         {
-            return View(CreateDashboard());
+            var usage = Db.UsageRecords.Include(x => x.Subscription).ThenInclude(x => x.Customer).Include(x => x.Subscription.Plan).OrderByDescending(x => x.PeriodStart).ToList();
+            ViewBag.TotalCalls = usage.Sum(x => (long)(x.ApiCalls ?? 0));
+            var invoices = Db.Invoices.ToList();
+            ViewBag.Billed = invoices.Sum(x => x.Amount ?? 0); ViewBag.Paid = invoices.Where(x => x.Status == "Paid").Sum(x => x.Amount ?? 0); ViewBag.Discounts = invoices.Sum(x => x.DiscountAmount);
+            return View(usage);
         }
-        public IActionResult About()
-        {
-            return View();
-        }
-        private DashboardViewModel CreateDashboard()
-        {
-            var model = new DashboardViewModel { CustomerCount = data.Customers.Count, Subscriptions = data.Subscriptions };
-            foreach (var subscription in data.Subscriptions)
-            {
-                if (subscription.Status == "Active")
-                {
-                    model.ActiveSubscriptions++;
-                    model.MonthlyRevenue += subscription.Plan.MonthlyPrice ?? 0;
-                }
-            }
-            foreach (var invoice in data.Invoices)
-            {
-                if (invoice.Status == "Unpaid")
-                {
-                    model.UnpaidAmount += invoice.Amount ?? 0;
-                    model.OpenInvoices.Add(invoice);
-                }
-            }
-            foreach (var record in data.UsageRecords) model.ApiCalls += record.ApiCalls ?? 0;
-            return model;
-        }
+        public IActionResult About() => View();
+        [AllowAnonymous]
+        public IActionResult Error() { Response.StatusCode = 500; return View(); }
     }
 }

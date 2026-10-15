@@ -1,0 +1,22 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Access denied — QuTech</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <main style="max-width:640px;padding-top:70px;">
+        <section class="panel">
+            <p class="eyebrow">QUTECH · ACCESS CONTROL</p>
+            <h1>Administrator access required</h1>
+            <p>Your account does not have permission to open this page. Use an authorised administrator account to continue.</p>
+            <a asp-controller="Account" asp-action="Login" class="button">Go to sign in</a>
+        </section>
+    </main>
+</body>
+</html>
