@@ -1,6 +1,5 @@
 @model List<Plan>
-@{ ViewData["Title"] = "Subscription plans"; }
-<div class="page-heading"><div><p class="eyebrow">QUTECH ADMINISTRATION</p><h1>Subscription plans</h1><p>Flexible monthly plans with clear allowances and included capabilities.</p></div><a class="button" asp-action="Create">+ New record</a></div>
-<div class="plan-grid">@foreach (var plan in Model) {
-    <article class="plan"><p class="eyebrow">MONTHLY SUBSCRIPTION</p><h2>@plan.Name</h2><p>@plan.Description</p><p class="price">AUD @plan.MonthlyPrice?.ToString("N0")<small> / month</small></p><p>@plan.IncludedApiCalls?.ToString("N0") API calls included</p><ul>@foreach (var link in plan.PlanModules) { <li>@link.Module.Name</li> }</ul><a class="button secondary" asp-action="Details" asp-route-id="@plan.Id">Review plan →</a></article>
-}</div>
+@{ ViewData["Title"] = "Plans"; }
+<div class="page-heading"><div><p class="eyebrow">QUTECH OPERATIONS</p><h1>Plans</h1><p>Manage the stored plans for your SaaS service.</p></div><a class="button" asp-action="Create">New Plan</a></div>
+<div class="table-wrap"><table><thead><tr><th>Plan name</th><th>Description</th><th>Monthly price AUD</th><th>Included API calls</th><th>Actions</th></tr></thead><tbody>@foreach(var item in Model) { <tr><td>@item.Name</td><td>@item.Description</td><td>@item.MonthlyPrice</td><td>@item.IncludedApiCalls</td><td><a asp-action="Details" asp-route-id="@item.Id">Details</a> · <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> · <a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td></tr> }</tbody></table></div>
+@if(Model.Count == 0) { <p>No records yet. Create the first record above.</p> }

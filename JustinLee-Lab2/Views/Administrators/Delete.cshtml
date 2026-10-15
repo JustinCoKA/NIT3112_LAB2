@@ -1,0 +1,10 @@
+@model Administrator
+@{ ViewData["Title"] = "Delete administrator"; }
+<a class="back" asp-action="Details" asp-route-id="@Model.Id">← Back to administrator</a>
+<h1>Delete administrator</h1>
+<p>Delete @Model.FullName and their login account? Administrators with audit history and your own account cannot be deleted.</p>
+<form asp-action="Delete" asp-route-id="@Model.Id" method="post" class="form-panel">
+<div asp-validation-summary="All" class="validation" role="alert"></div>
+<input asp-for="Id" type="hidden" />
+<div class="form-actions"><button type="submit" class="button">Confirm deletion</button><a asp-action="Details" asp-route-id="@Model.Id">Cancel</a></div>
+</form>

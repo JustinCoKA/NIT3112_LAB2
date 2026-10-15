@@ -1,7 +1,4 @@
 @model Subscription
-@{ ViewData["Title"] = "Subscriptions details"; }
-<a class="back" asp-action="Index">← Back to subscriptions</a>
-@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
-<div class="page-heading"><div><p class="eyebrow">SUBSCRIPTIONS</p><h1>@Model.Customer.CompanyName</h1></div></div>
-<section class="panel"><dl class="details"><div><dt>Plan</dt><dd>@Model.Plan.Name</dd></div><div><dt>Start date</dt><dd>@Model.StartDate?.ToString("dd MMM yyyy")</dd></div><div><dt>Status</dt><dd>@Model.Status</dd></div><div><dt>Monthly price (AUD)</dt><dd>@Model.Plan.MonthlyPrice?.ToString("N2")</dd></div></dl></section>
-@if (ViewBag.IsPreview != true) {<section class="panel"><h2>Usage history</h2>@foreach (var record in Model.UsageRecords) {<p><a asp-controller="Usage" asp-action="Details" asp-route-id="@record.Id">@record.PeriodStart?.ToString("MMM yyyy")</a> · @record.ApiCalls?.ToString("N0") API calls</p>}<h2>Invoice history</h2>@foreach (var invoice in Model.Invoices) {<p><a asp-controller="Invoices" asp-action="Details" asp-route-id="@invoice.Id">@invoice.Reference</a> · AUD @invoice.Amount?.ToString("N2") · @invoice.Status</p>}</section>}
+@{ ViewData["Title"] = "Subscription details"; }
+<a class="back" asp-action="Index">Back to subscriptions</a><div class="page-heading"><h1>Subscription details</h1><a class="button" asp-action="Edit" asp-route-id="@Model.Id">Edit</a></div>
+<section class="panel"><dl class="details"><div><dt>Customer</dt><dd>@Model.CustomerId</dd></div><div><dt>Plan</dt><dd>@Model.PlanId</dd></div><div><dt>Discount optional</dt><dd>@Model.DiscountId</dd></div><div><dt>Start date</dt><dd>@Model.StartDate</dd></div><div><dt>Status</dt><dd>@Model.Status</dd></div></dl></section>

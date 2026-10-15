@@ -1,0 +1,48 @@
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Administrator sign in — QuTech</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <main style="max-width:600px;padding-top:60px;">
+        <p class="eyebrow">QUTECH · ADMINISTRATION</p>
+        <h1>Welcome back.</h1>
+        <p>Sign in to manage customers, subscriptions and billing from one place.</p>
+        <section class="form-panel" aria-labelledby="login-heading">
+            <h2 id="login-heading">Administrator sign in</h2>
+            <form asp-controller="Account" asp-action="Login" method="post">
+                <input asp-for="ReturnUrl" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="validation" role="alert"></div>
+                <div class="field">
+                    <label asp-for="Email">Email address</label>
+                    <input asp-for="Email" type="email" autocomplete="username" />
+                    <span asp-validation-for="Email" class="validation"></span>
+                </div>
+                <div class="field">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" autocomplete="current-password" />
+                    <span asp-validation-for="Password" class="validation"></span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="button">Sign in</button>
+                </div>
+            </form>
+        </section>
+        <aside class="notice" aria-label="Coursework demonstration credentials">
+            <strong>Local coursework demonstration</strong><br />
+            Fictional seeded administrator: <strong>alex@example.com</strong><br />
+            Demo password: <strong>QuTechLab3!2026</strong><br />
+            These credentials are for this assessment demonstration only.
+        </aside>
+        <p style="font-size:12px;">QuTech subscription management · Justin Lee · NIT3112 Lab 3</p>
+    </main>
+</body>
+</html>

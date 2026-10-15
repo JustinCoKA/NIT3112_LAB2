@@ -1,0 +1,13 @@
+@model Administrator
+@{ ViewData["Title"] = "Edit administrator"; }
+<a class="back" asp-action="Index">← Back to administrators</a>
+<div class="page-heading"><div><p class="eyebrow">ACCESS MANAGEMENT</p><h1>Edit administrator</h1><p>Manage the profile and email used for administrator access.</p></div></div>
+<form asp-action="Edit" method="post" class="form-panel">
+<div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="FullName">Full name</label><input asp-for="FullName" type="text" /><span asp-validation-for="FullName" class="validation"></span></div>
+<div class="field"><label asp-for="Email">Email address</label><input asp-for="Email" type="email" /><span asp-validation-for="Email" class="validation"></span></div>
+<div class="field"><label asp-for="Phone">Phone</label><input asp-for="Phone" type="tel" /><span asp-validation-for="Phone" class="validation"></span></div>
+<div class="field"><label asp-for="Department">Department</label><input asp-for="Department" type="text" /><span asp-validation-for="Department" class="validation"></span></div>
+<input asp-for="Id" type="hidden" />
+<div class="form-actions"><button type="submit" class="button">Save administrator</button><a asp-action="Index">Cancel</a></div>
+</form>

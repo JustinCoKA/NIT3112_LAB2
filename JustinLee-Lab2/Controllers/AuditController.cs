@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
-using JustinLee_Lab2.Models;
+using Microsoft.EntityFrameworkCore;
+using JustinLee_Lab2.Data;
 namespace JustinLee_Lab2.Controllers
 {
-    public class AuditController : Controller
+    public class AuditController : QuTechAdminController
     {
-        public IActionResult Index()
-        {
-            // Audit records are read-only; real automatic capture belongs to Lab 3.
-            return View(new DemoData().AuditEntries);
-        }
+        public AuditController(QuTechContext db) : base(db) { }
+        // Audit entries have no update/delete endpoints so operation history stays accountable.
+        public IActionResult Index() => View(Db.AuditEntries.Include(x => x.Administrator).OrderByDescending(x => x.OccurredAt).ToList());
     }
 }

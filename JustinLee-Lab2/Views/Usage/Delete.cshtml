@@ -1,0 +1,4 @@
+@model UsageRecord
+@{ ViewData["Title"] = "Delete UsageRecord"; }
+<h1>Delete UsageRecord</h1><p>Confirm deletion of @Model.Id. Records with dependent data cannot be removed.</p>
+<form class="form-panel" method="post" asp-action="Delete" asp-route-id="@Model.Id"><div asp-validation-summary="All" class="validation" role="alert"></div><button class="button danger" type="submit">Confirm delete</button> <a asp-action="Index">Cancel</a></form>

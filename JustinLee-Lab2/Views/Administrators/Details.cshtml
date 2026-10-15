@@ -1,7 +1,8 @@
 @model Administrator
 @{ ViewData["Title"] = "Administrators details"; }
 <a class="back" asp-action="Index">← Back to administrators</a>
-@if (ViewBag.IsPreview == true) { <div class="notice success" role="status"><strong>Validation passed.</strong> This is a preview of your input. No record has been saved.</div> }
+@if (TempData["Success"] != null) { <div class="notice success" role="status">@TempData["Success"]</div> }
 <div class="page-heading"><div><p class="eyebrow">ADMINISTRATORS</p><h1>@Model.FullName</h1></div></div>
+<p><a class="button" asp-action="Edit" asp-route-id="@Model.Id">Edit administrator</a> <a class="button secondary" asp-action="Delete" asp-route-id="@Model.Id">Delete administrator</a></p>
 <section class="panel"><dl class="details"><div><dt>Department</dt><dd>@Model.Department</dd></div><div><dt>Email</dt><dd>@Model.Email</dd></div><div><dt>Phone</dt><dd>@Model.Phone</dd></div></dl></section>
-@if (ViewBag.IsPreview != true) {<section class="panel"><h2>Recorded activity</h2>@foreach (var entry in Model.AuditEntries) {<p>@entry.OccurredAt?.ToString("dd MMM yyyy HH:mm") · @entry.Action</p>}</section>}
+<section class="panel"><h2>Recorded activity</h2>@foreach (var entry in Model.AuditEntries) {<p>@entry.OccurredAt?.ToString("dd MMM yyyy HH:mm") · @entry.Action</p>}</section>

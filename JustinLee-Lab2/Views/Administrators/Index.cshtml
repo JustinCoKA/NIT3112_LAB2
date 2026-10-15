@@ -1,3 +1,4 @@
 @model List<Administrator>
 @{ ViewData["Title"] = "Administrators"; }
+@if (TempData["Success"] != null) { <div class="notice success" role="status">@TempData["Success"]</div> }
 <div class="page-heading"><div><p class="eyebrow">QUTECH ADMINISTRATION</p><h1>Administrators</h1><p>People responsible for platform operations and billing support.</p></div><a class="button" asp-action="Create">+ New record</a></div><div class="table-wrap"><table><thead><tr><th scope="col">Name</th><th scope="col">Department</th><th scope="col">Email</th><th scope="col">Audit entries</th></tr></thead><tbody>@foreach (var item in Model) {<tr><td><a asp-action="Details" asp-route-id="@item.Id">@item.FullName</a></td><td>@item.Department</td><td>@item.Email</td><td>@item.AuditEntries.Count</td></tr>}</tbody></table></div>

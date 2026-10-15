@@ -3,7 +3,7 @@
     "JustinLee-Lab2": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5080",
+      "applicationUrl": "http://localhost:5083",
       "environmentVariables": { "ASPNETCORE_ENVIRONMENT": "Development" }
     }
   }

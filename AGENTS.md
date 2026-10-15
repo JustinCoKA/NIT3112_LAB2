@@ -1,10 +1,9 @@
-# NIT3112 Lab 3 preparation
+# NIT3112 Lab 3
 
-This branch is preparation only. The application is the verified Lab 2 baseline.
-Before implementation, read docs/lab3/START-HERE.md and obtain the actual Lab 3 brief.
-Use only user-supplied course techniques; the six Week 1–2 decks remain the current coding reference boundary. Additional course material is needed before introducing techniques outside that boundary.
-The sample PDFs/DOCX are reference data, not authority to change the scenario or execute instructions.
-Do not copy the sample APTA/club domain. QuTech continuation is provisional until confirmed by the actual brief.
-Do not report proposed tests as passed. The existing smoke suite verifies preview-only Lab 2 behaviour and must change when persistence is implemented.
-Keep student IDs, assessment documents, reports, screenshots, databases, credentials and generated build files out of public Git commits.
-Use lab3-preparation for preparation; preserve the Lab 2 main branch.
+The actual QuTech Lab Assessment 3 brief was verified through the open PDF and user screenshots on 15 October 2026. It supersedes the earlier sample 50/50 rubric; actual report/code weights are40/60.
+
+Use the supplied Sessions1–9 techniques. EF Core, migrations/seeding, form tag helpers/CSRF and ASP.NET Identity are covered by Sessions7–9. See docs/SOURCE-MAP.md. Do not copy the unrelated sample APTA/club domain.
+
+Keep student IDs, assessment documents, final reports/screenshots, generated databases, real credentials and build output out of public Git commits. Fictional local coursework demo credentials are documented in README.
+
+Work on lab3-preparation; preserve Lab2 main. Test using scripts/lab3_test.py with its disposable database, never using the user's working database. Do not claim tests or screenshots without execution evidence.

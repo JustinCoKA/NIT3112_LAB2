@@ -1,0 +1,11 @@
+@model Subscription
+@{ var editing = Model.Id != 0; ViewData["Title"] = editing ? "Edit Subscription" : "New Subscription"; }
+<a class="back" asp-action="Index">Back to subscriptions</a><h1>@ViewData["Title"]</h1><p>Save valid business information to the QuTech database.</p>
+<form class="form-panel" method="post" asp-action="@(editing ? "Edit" : "Create")" asp-route-id="@(editing ? Model.Id : (int?)null)">
+<input type="hidden" asp-for="Id"/><div asp-validation-summary="All" class="validation" role="alert"></div>
+<div class="field"><label asp-for="CustomerId">Customer</label><select asp-for="CustomerId"><option value="">Choose customer</option>@foreach (var item in ViewBag.Customers) { <option value="@item.Id">@item.CompanyName</option> }</select><span asp-validation-for="CustomerId" class="validation"></span></div>
+<div class="field"><label asp-for="PlanId">Plan</label><select asp-for="PlanId"><option value="">Choose plan</option>@foreach (var item in ViewBag.Plans) { <option value="@item.Id">@item.Name</option> }</select><span asp-validation-for="PlanId" class="validation"></span></div>
+<div class="field"><label asp-for="DiscountId">Discount optional</label><select asp-for="DiscountId"><option value="">No discount</option>@foreach (var item in ViewBag.Discounts) { <option value="@item.Id">@item.Name</option> }</select><span asp-validation-for="DiscountId" class="validation"></span></div>
+<div class="field"><label asp-for="StartDate">Start date</label><input asp-for="StartDate" type="date" asp-format="{0:yyyy-MM-dd}"/><span asp-validation-for="StartDate" class="validation"></span></div>
+<div class="field"><label asp-for="Status">Status</label><select asp-for="Status"><option value="Active">Active</option><option value="Trial">Trial</option><option value="Paused">Paused</option></select><span asp-validation-for="Status" class="validation"></span></div>
+<div class="form-actions"><button class="button" type="submit">Save</button><a asp-action="Index">Cancel</a></div></form>

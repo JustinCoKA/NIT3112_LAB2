@@ -1,0 +1,4 @@
+@model Customer
+@{ ViewData["Title"] = "Delete Customer"; }
+<h1>Delete Customer</h1><p>Confirm deletion of @Model.CompanyName. Records with dependent data cannot be removed.</p>
+<form class="form-panel" method="post" asp-action="Delete" asp-route-id="@Model.Id"><div asp-validation-summary="All" class="validation" role="alert"></div><button class="button danger" type="submit">Confirm delete</button> <a asp-action="Index">Cancel</a></form>
