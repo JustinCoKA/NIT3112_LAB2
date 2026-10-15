@@ -1,0 +1,17 @@
+ID,Scenario,Preconditions,Steps to expand,Expected result to confirm,Actual result,Status,Evidence,Requirement ID
+T01,Build from clean extraction,SDK available,Build solution,No build errors,,NOT RUN,,PENDING ACTUAL BRIEF
+T02,Page navigation,Application running,Open all required pages,Pages render and links work,,NOT RUN,,PENDING ACTUAL BRIEF
+T03,Required fields,Create form open,Submit blank inputs,Custom field errors; no write,,NOT RUN,,PENDING ACTUAL BRIEF
+T04,Input boundaries,Applicable forms open,"Use invalid email, negative values, overlong text",Custom errors; no invalid record,,NOT RUN,,PENDING ACTUAL BRIEF
+T05,Create persistence,Database feature confirmed,Create valid record then restart app,Record remains after restart,,NOT RUN,,PENDING ACTUAL BRIEF
+T06,Update persistence,Existing seeded record,Edit valid fields and reload,Saved values visible,,NOT RUN,,PENDING ACTUAL BRIEF
+T07,Delete policy,Linked and unlinked records,Attempt deletion per agreed rules,Policy respected; no orphan rows,,NOT RUN,,PENDING ACTUAL BRIEF
+T08,One to one,Schema created,Attempt duplicate profile for customer,Uniqueness enforced,,NOT RUN,,PENDING ACTUAL BRIEF
+T09,One to many,Existing parent record,Create valid child and invalid FK child,Valid child linked; invalid FK rejected,,NOT RUN,,PENDING ACTUAL BRIEF
+T10,Many to many,Plans/modules confirmed,Add duplicate association,Composite uniqueness respected,,NOT RUN,,PENDING ACTUAL BRIEF
+T11,Inheritance,Mapping selected,Read each concrete subtype,Shared and subtype values retained,,NOT RUN,,PENDING ACTUAL BRIEF
+T12,Invoice rules,Billing scope confirmed,Due date before issue date,Custom error; no write,,NOT RUN,,PENDING ACTUAL BRIEF
+T13,Missing record,Application running,Request nonexistent detail ID,Controlled not-found response,,NOT RUN,,PENDING ACTUAL BRIEF
+T14,Seed repeatability,Disposable test database,Run documented seed routine twice,Expected seed counts; no unintended duplicates,,NOT RUN,,PENDING ACTUAL BRIEF
+T15,Responsive manual,Final UI running,Inspect desktop and narrow viewport,Readable forms and navigation,,NOT RUN,,PENDING ACTUAL BRIEF
+T16,Final package,Clean extraction location,Follow README from scratch,"Build, setup and required workflows succeed",,NOT RUN,,PENDING ACTUAL BRIEF

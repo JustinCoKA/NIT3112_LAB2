@@ -1,3 +1,7 @@
+# Lab 3 preparation branch
+
+Start with [the preparation guide](docs/lab3/START-HERE.md). The application below remains the unchanged Lab 2 baseline until the actual Lab 3 brief is confirmed.
+
 # JustinLee-Lab2 · QuTech SaaS administration
 
 NIT3112 Lab Assessment 2 — Justin Lee

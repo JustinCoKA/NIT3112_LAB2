@@ -1,0 +1,15 @@
+ID,Capture,Suggested filename,Status
+E01,overview,01-overview.png,NOT CAPTURED
+E02,model-erd,02-model-erd.png,NOT CAPTURED
+E03,database-schema,03-database-schema.png,NOT CAPTURED
+E04,seed-data,04-seed-data.png,NOT CAPTURED
+E05,customer-list,05-customer-list.png,NOT CAPTURED
+E06,customer-create-success,06-customer-create-success.png,NOT CAPTURED
+E07,customer-validation,07-customer-validation.png,NOT CAPTURED
+E08,customer-edit-success,08-customer-edit-success.png,NOT CAPTURED
+E09,delete-policy,09-delete-policy.png,NOT CAPTURED
+E10,plan-module-relationship,10-plan-module-relationship.png,NOT CAPTURED
+E11,invoice-validation,11-invoice-validation.png,NOT CAPTURED
+E12,missing-record,12-missing-record.png,NOT CAPTURED
+E13,mobile-overview,13-mobile-overview.png,NOT CAPTURED
+E14,test-results,14-test-results.png,NOT CAPTURED

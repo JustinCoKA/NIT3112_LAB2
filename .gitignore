@@ -3,3 +3,12 @@
 .vs/
 *.user
 .DS_Store
+
+# Local Lab 3 evidence and data
+.local/
+artifacts/
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.*
