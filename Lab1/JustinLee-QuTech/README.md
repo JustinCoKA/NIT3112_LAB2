@@ -16,7 +16,7 @@ Python 3 is optional development tooling:
 
     python3 tests/run_tests.py
 
-12 black-box cases check actual process output and exit status. results.json contains captured output. Evidence images in evidence/ are screenshots of a viewer displaying the unchanged output, rather than native Terminal screenshots. Five entry captures and the five-row summary come from the same process.
+12 black-box cases check actual process output and exit status. results.json contains captured output. Evidence images in evidence/ are screenshots of the running .NET application in a live PTY terminal, including actual keyboard inputs. Five entry captures and the five-row summary come from the same process. The summary is followed by a supplementary validation entry and normal exit. Raw terminal output and keyboard events are included.
 
 ## Contents
 The complete solution, project, C# source, test runner, observed results and evidence are included. Generated bin and obj folders are excluded; dotnet rebuilds them.

@@ -54,4 +54,4 @@ The docs are implementation notes and report material. They are not a claim that
 
 ## Lab Assessment 1
 
-The completed console application, tests, evidence, Word report and source ZIP are available in [Lab1](Lab1/README.md). Lab 3 continues on [lab3-preparation](https://github.com/JustinCoKA/NIT3112_LAB2/tree/lab3-preparation).
+The completed console application, tests, evidence, PDF report, editable Word backup and source ZIP are available in [Lab1](Lab1/README.md). Lab 3 continues on [lab3-preparation](https://github.com/JustinCoKA/NIT3112_LAB2/tree/lab3-preparation).

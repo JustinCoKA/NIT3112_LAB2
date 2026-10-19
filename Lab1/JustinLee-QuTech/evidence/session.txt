@@ -1,0 +1,188 @@
+[?1h=******** Welcome to QuTech Admin Portal ********
+Logged in as: Justin Lee (Administrator)
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: A
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: B
+Enter business name (1-60 characters): Woolies
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+Plan choice (0-3): 1
+Enter number of users (1-100): 20
+Enter discount code or No: No
+
+Saved subscription for Woolies
+Plan: Standard | Users: 20
+Price per user: $20.00 per month
+Subtotal: $400.00 | Discount: $0.00
+Total monthly price: $400.00 | Discount: N
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: B
+Enter business name (1-60 characters): Coles
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+Plan choice (0-3): 2
+Enter number of users (1-100): 25
+Enter discount code or No: JUST
+
+Saved subscription for Coles
+Plan: Premium | Users: 25
+Price per user: $25.50 per month
+Subtotal: $750.00 | Discount: $112.50
+Total monthly price: $637.50 | Discount: Y
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: B
+Enter business name (1-60 characters): Harbour Studio
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+Plan choice (0-3): 0
+Enter number of users (1-100): 1
+Enter discount code or No: No
+
+Saved subscription for Harbour Studio
+Plan: Startup | Users: 1
+Price per user: $10.00 per month
+Subtotal: $10.00 | Discount: $0.00
+Total monthly price: $10.00 | Discount: N
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: B
+Enter business name (1-60 characters): Summit Logistics
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+Plan choice (0-3): 3
+Enter number of users (1-100): 100
+Enter discount code or No: JUST
+
+Saved subscription for Summit Logistics
+Plan: Enterprise | Users: 100
+Price per user: $34.00 per month
+Subtotal: $4000.00 | Discount: $600.00
+Total monthly price: $3400.00 | Discount: Y
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: B
+Enter business name (1-60 characters): Greenfield Dental
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+Plan choice (0-3): 1
+Enter number of users (1-100): 10
+Enter discount code or No: just
+
+Saved subscription for Greenfield Dental
+Plan: Standard | Users: 10
+Price per user: $17.00 per month
+Subtotal: $200.00 | Discount: $30.00
+Total monthly price: $170.00 | Discount: Y
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: C
+
+All Subscriptions
+Business name     | Plan         | Users | Total Price | Discount
+-----------------------------------------------------------------------
+Woolies           | Standard     |    20 |     $400.00 | N
+Coles             | Premium      |    25 |     $637.50 | Y
+Harbour Studio    | Startup      |     1 |      $10.00 | N
+Summit Logistics  | Enterprise   |   100 |    $3400.00 | Y
+Greenfield Dental | Standard     |    10 |     $170.00 | Y
+Subscriptions: 5 | Combined monthly total: $4617.50
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: ?
+Invalid option. Choose A, B, C or D.
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: B
+Enter business name (1-60 characters): 
+Business name must contain 1-60 printable characters.
+Enter business name (1-60 characters): Validation Check
+
+Plan ID | Plan Name    | Monthly price per user
+0       | Startup      | $10.00
+1       | Standard     | $20.00
+2       | Premium      | $30.00
+3       | Enterprise   | $40.00
+Plan choice (0-3): 4
+Enter a whole number from 0 to 3.
+Plan choice (0-3): 0
+Enter number of users (1-100): 0
+Enter a whole number from 1 to 100.
+Enter number of users (1-100): 101
+Enter a whole number from 1 to 100.
+Enter number of users (1-100): abc
+Enter a whole number from 1 to 100.
+Enter number of users (1-100): 1
+Enter discount code or No: BAD
+Invalid discount code. Enter JUST for 15% off, or No.
+Enter discount code or No: No
+
+Saved subscription for Validation Check
+Plan: Startup | Users: 1
+Price per user: $10.00 per month
+Subtotal: $10.00 | Discount: $0.00
+Total monthly price: $10.00 | Discount: N
+
+A. See all Plans
+B. Create a new Subscription
+C. Show all Subscriptions
+D. Quit
+Your option: D
+Goodbye, Justin Lee. Session data is cleared on exit.
