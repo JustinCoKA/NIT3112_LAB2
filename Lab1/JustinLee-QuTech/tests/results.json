@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Welcome and four plans",
+    "input": "A\nD\n",
+    "expected": [
+      "Justin Lee (Administrator)",
+      "Startup",
+      "Standard",
+      "Premium",
+      "Enterprise",
+      "$10.00",
+      "$20.00",
+      "$30.00",
+      "$40.00",
+      "Goodbye"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Empty summary",
+    "input": "C\nD\n",
+    "expected": [
+      "No subscriptions yet."
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: \nAll Subscriptions\nNo subscriptions yet. Choose B to create one.\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Five subscriptions and summary",
+    "input": "B\nWoolies\n1\n20\nNo\nB\nColes\n2\n25\nJUST\nB\nHarbour Studio\n0\n1\nNo\nB\nSummit Logistics\n3\n100\nJUST\nB\nGreenfield Dental\n1\n10\njust\nC\nD\n",
+    "expected": [
+      "Saved subscription for Woolies",
+      "Saved subscription for Coles",
+      "Saved subscription for Harbour Studio",
+      "Saved subscription for Summit Logistics",
+      "Saved subscription for Greenfield Dental",
+      "Total monthly price: $400.00",
+      "Total monthly price: $637.50",
+      "Total monthly price: $10.00",
+      "Total monthly price: $3400.00",
+      "Total monthly price: $170.00",
+      "Subscriptions: 5 | Combined monthly total: $4617.50"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Woolies\nPlan: Standard | Users: 20\nPrice per user: $20.00 per month\nSubtotal: $400.00 | Discount: $0.00\nTotal monthly price: $400.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Coles\nPlan: Premium | Users: 25\nPrice per user: $25.50 per month\nSubtotal: $750.00 | Discount: $112.50\nTotal monthly price: $637.50 | Discount: Y\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Harbour Studio\nPlan: Startup | Users: 1\nPrice per user: $10.00 per month\nSubtotal: $10.00 | Discount: $0.00\nTotal monthly price: $10.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Summit Logistics\nPlan: Enterprise | Users: 100\nPrice per user: $34.00 per month\nSubtotal: $4000.00 | Discount: $600.00\nTotal monthly price: $3400.00 | Discount: Y\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Greenfield Dental\nPlan: Standard | Users: 10\nPrice per user: $17.00 per month\nSubtotal: $200.00 | Discount: $30.00\nTotal monthly price: $170.00 | Discount: Y\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: \nAll Subscriptions\nBusiness name     | Plan         | Users | Total Price | Discount\n-----------------------------------------------------------------------\nWoolies           | Standard     |    20 |     $400.00 | N\nColes             | Premium      |    25 |     $637.50 | Y\nHarbour Studio    | Startup      |     1 |      $10.00 | N\nSummit Logistics  | Enterprise   |   100 |    $3400.00 | Y\nGreenfield Dental | Standard     |    10 |     $170.00 | Y\nSubscriptions: 5 | Combined monthly total: $4617.50\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Invalid inputs and recovery",
+    "input": "?\nB\n\nCheck Client\n4\n-1\ntext\n1\n0\n101\n1.5\nabc\n999999999999999999\n20\nBAD\nNo\nC\nD\n",
+    "expected": [
+      "Invalid option.",
+      "Business name must",
+      "Enter a whole number from 0 to 3.",
+      "Enter a whole number from 1 to 100.",
+      "Invalid discount code.",
+      "Subscriptions: 1",
+      "Total monthly price: $400.00"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Invalid option. Choose A, B, C or D.\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): Business name must contain 1-60 printable characters.\nEnter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter a whole number from 0 to 3.\nPlan choice (0-3): Enter a whole number from 0 to 3.\nPlan choice (0-3): Enter a whole number from 0 to 3.\nPlan choice (0-3): Enter number of users (1-100): Enter a whole number from 1 to 100.\nEnter number of users (1-100): Enter a whole number from 1 to 100.\nEnter number of users (1-100): Enter a whole number from 1 to 100.\nEnter number of users (1-100): Enter a whole number from 1 to 100.\nEnter number of users (1-100): Enter a whole number from 1 to 100.\nEnter number of users (1-100): Enter discount code or No: Invalid discount code. Enter JUST for 15% off, or No.\nEnter discount code or No: \nSaved subscription for Check Client\nPlan: Standard | Users: 20\nPrice per user: $20.00 per month\nSubtotal: $400.00 | Discount: $0.00\nTotal monthly price: $400.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: \nAll Subscriptions\nBusiness name | Plan         | Users | Total Price | Discount\n-------------------------------------------------------------------\nCheck Client  | Standard     |    20 |     $400.00 | N\nSubscriptions: 1 | Combined monthly total: $400.00\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Plan 0 upper boundary no discount",
+    "input": "B\nBoundary\n0\n100\nNo\nD\n",
+    "expected": [
+      "Total monthly price: $1000.00"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Boundary\nPlan: Startup | Users: 100\nPrice per user: $10.00 per month\nSubtotal: $1000.00 | Discount: $0.00\nTotal monthly price: $1000.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Plan 1 upper boundary no discount",
+    "input": "B\nBoundary\n1\n100\nNo\nD\n",
+    "expected": [
+      "Total monthly price: $2000.00"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Boundary\nPlan: Standard | Users: 100\nPrice per user: $20.00 per month\nSubtotal: $2000.00 | Discount: $0.00\nTotal monthly price: $2000.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Plan 2 upper boundary no discount",
+    "input": "B\nBoundary\n2\n100\nNo\nD\n",
+    "expected": [
+      "Total monthly price: $3000.00"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Boundary\nPlan: Premium | Users: 100\nPrice per user: $30.00 per month\nSubtotal: $3000.00 | Discount: $0.00\nTotal monthly price: $3000.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Plan 3 upper boundary no discount",
+    "input": "B\nBoundary\n3\n100\nNo\nD\n",
+    "expected": [
+      "Total monthly price: $4000.00"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Boundary\nPlan: Enterprise | Users: 100\nPrice per user: $40.00 per month\nSubtotal: $4000.00 | Discount: $0.00\nTotal monthly price: $4000.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Trimmed lowercase selections",
+    "input": " b \n Trim Client \n0\n1\n just \nc\nd\n",
+    "expected": [
+      "Saved subscription for Trim Client",
+      "Total monthly price: $8.50",
+      "Discount: Y"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Trim Client\nPlan: Startup | Users: 1\nPrice per user: $8.50 per month\nSubtotal: $10.00 | Discount: $1.50\nTotal monthly price: $8.50 | Discount: Y\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: \nAll Subscriptions\nBusiness name | Plan         | Users | Total Price | Discount\n-------------------------------------------------------------------\nTrim Client   | Startup      |     1 |       $8.50 | Y\nSubscriptions: 1 | Combined monthly total: $8.50\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Name length limit",
+    "input": "B\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nValid\n0\n1\nNo\nD\n",
+    "expected": [
+      "Business name must",
+      "Saved subscription for Valid"
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): Business name must contain 1-60 printable characters.\nEnter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): Enter discount code or No: \nSaved subscription for Valid\nPlan: Startup | Users: 1\nPrice per user: $10.00 per month\nSubtotal: $10.00 | Discount: $0.00\nTotal monthly price: $10.00 | Discount: N\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "EOF during incomplete entry",
+    "input": "B\nUnfinished\n0\n",
+    "expected": [
+      "Input ended. Any incomplete entry was not saved."
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Enter business name (1-60 characters): \nPlan ID | Plan Name    | Monthly price per user\n0       | Startup      | $10.00\n1       | Standard     | $20.00\n2       | Premium      | $30.00\n3       | Enterprise   | $40.00\nPlan choice (0-3): Enter number of users (1-100): \nInput ended. Any incomplete entry was not saved.\nGoodbye, Justin Lee. Session data is cleared on exit.\n"
+  },
+  {
+    "name": "Fresh process clears session",
+    "input": "C\nD\n",
+    "expected": [
+      "No subscriptions yet."
+    ],
+    "status": "PASS",
+    "output": "******** Welcome to QuTech Admin Portal ********\nLogged in as: Justin Lee (Administrator)\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: \nAll Subscriptions\nNo subscriptions yet. Choose B to create one.\n\nA. See all Plans\nB. Create a new Subscription\nC. Show all Subscriptions\nD. Quit\nYour option: Goodbye, Justin Lee. Session data is cleared on exit.\n"
+  }
+]
